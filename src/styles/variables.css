@@ -1,0 +1,27 @@
+:root {
+  /* Brand colors */
+  --color-black: #171514;
+  --color-ivory: #F7F3EC;
+  --color-rose: #A76570;
+  --color-blush: #D9B1AE;
+  --color-burgundy: #672D39;
+  --color-green: #183B32;
+  --color-navy: #172536;
+  --color-gold: #B08A57;
+
+  /* Supporting colors */
+  --color-white: #FFFFFF;
+  --color-grey: #A79A8F;
+  --color-border: rgba(103, 45, 57, 0.16);
+
+  /* Typography */
+  --font-heading: 'Cormorant Garamond', serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Layout */
+  --container-width: 1320px;
+  --page-padding: 6%;
+
+  /* Transitions */
+  --transition: 0.35s ease;
+}

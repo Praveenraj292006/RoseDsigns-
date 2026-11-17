@@ -1,0 +1,53 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+@theme static {
+  /* Brand colours */
+  --color-rose-black: #171514;
+  --color-ivory: #F7F3EC;
+
+  --color-antique-rose: #A76570;
+  --color-dusty-blush: #D9B1AE;
+
+  --color-burgundy: #672D39;
+  --color-deep-burgundy: #48202A;
+
+  --color-antique-gold: #B08A57;
+  --color-light-gold: #D6B779;
+  --color-champagne: #E8D6B5;
+
+  --color-muted: #82766F;
+  --color-soft-border: #E5DAD0;
+
+  /* Typography */
+  --font-heading: "Cormorant Garamond", serif;
+  --font-body: "Inter", sans-serif;
+}
+
+/* Global reset */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: var(--font-body);
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+::selection {
+  background: var(--color-burgundy);
+  color: var(--color-light-gold);
+}
