@@ -1,4 +1,4 @@
-
+import { useState } from "react";
 import Navbar from './Components/Navbar'
 import Hero from './Components/Hero'
 import Work from './Components/Work'
@@ -8,24 +8,26 @@ import Contact from './Components/Contact'
 import Footer from './Components/Footer'
 import Preloader from "./Components/PreLoader";
 
-const App = () => {
+function App() {
+  const [isLoaded, setIsLoaded] = useState(false);
+
   return (
-   <>
-      <Preloader />
+    <>
+      <Preloader onComplete={() => setIsLoaded(true)} />
 
       <Navbar />
 
       <main>
-        <Hero />
+        <Hero isLoaded={isLoaded} />
         <Work />
         <Services />
-        <Divider/>
+        <Divider />
         <Contact />
       </main>
 
       <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -62,6 +62,8 @@ function Magnetic({ children, className = "", href }) {
   );
 }
 
+
+
 /* ---------- Rose ----------
    viewBox is 500x500, centre (250,250).
    A petal's tip reaches 2*ry from the centre, so the largest ring
@@ -175,7 +177,7 @@ function Rose({ mx, my, reduced }) {
 }
 
 /* ---------- Hero ---------- */
-export default function Hero() {
+export default function Hero({ isLoaded }) {
   const reduced = useReducedMotion();
   const ref = useRef(null);
   const [index, setIndex] = useState(0);
@@ -254,8 +256,8 @@ export default function Hero() {
               <span key={line} className="block overflow-hidden" style={{ paddingBottom: "0.1em" }}>
                 <motion.span
                   className="block"
-                  initial={{ y: "110%" }}
-                  animate={{ y: 0 }}
+                 initial={{ y: "110%" }}
+                 animate={{ y: isLoaded ? 0 : "110%" }}
                   transition={{ duration: 1, delay: 0.15 + i * 0.12, ease }}
                 >
                   {line}
@@ -281,7 +283,11 @@ export default function Hero() {
 
           <motion.p
             initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={
+            isLoaded
+                ? { opacity: 1, y: 0 }
+                : { opacity: 0, y: 16 }
+            }
             transition={{ duration: 0.9, delay: 0.7, ease }}
             className="max-w-[34rem] font-body text-[15px] font-light text-champagne/80 md:text-base"
             style={{ lineHeight: 1.8 }}
@@ -293,7 +299,11 @@ export default function Hero() {
 
           <motion.div
             initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={
+            isLoaded
+                ? { opacity: 1, y: 0 }
+                : { opacity: 0, y: 16 }
+            }
             transition={{ duration: 0.9, delay: 0.85, ease }}
             className="flex flex-wrap items-center gap-4"
           >
@@ -338,7 +348,9 @@ export default function Hero() {
 
         {/* Rose, larger and allowed to bleed slightly past the column on desktop */}
         <div className="w-full lg:scale-[1.12] lg:origin-center">
-          <Rose mx={mx} my={my} reduced={reduced} />
+        {isLoaded && (
+            <Rose mx={mx} my={my} reduced={reduced} />
+        )}
         </div>
       </div>
 
